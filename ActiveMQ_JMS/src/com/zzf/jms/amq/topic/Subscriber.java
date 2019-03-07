@@ -10,6 +10,14 @@ import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+/**
+ * Subscriber
+ * @author FongFong-game
+ *
+ * NOTE:
+ * 1. Subscribers can only consume the messages enqueued after they subscribe the topic.
+ * 2. The messages that are already in the queue when new subscribers subscribe cannot be read.
+ */
 public class Subscriber {
 
 	public Subscriber() {

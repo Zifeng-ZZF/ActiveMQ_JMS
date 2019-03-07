@@ -4,6 +4,7 @@
  */
 package com.zzf.jms.amq.queue;
 
+import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -60,17 +61,33 @@ public class Sender {
 			
 			//6. Create the message to be sent with content in it
 			
-//			TextMessage textMessage = session.createTextMessage(msg);
+			//Text message
+			/*
+			TextMessage textMessage = session.createTextMessage(msg);	
+			*/
 			
-//			Student student = new Student(001, "ZZF", "Sino German");
-//			ObjectMessage objectMessage = session.createObjectMessage(student);
+			//Object message
+			/*
+			Student student = new Student(001, "ZZF", "Sino German");
+			ObjectMessage objectMessage = session.createObjectMessage(student);
+			*/
 			
+			
+			//Map message
+			/*
 			MapMessage mapMessage = session.createMapMessage();
 			mapMessage.setBoolean("niubi", true);
 			mapMessage.setString("Name", "ZZF");
+			*/
+			
+			//Byte message: carries original data type
+			BytesMessage bytesMessage = session.createBytesMessage();
+			bytesMessage.writeBoolean(true); 
+			bytesMessage.writeLong(10000);
+			bytesMessage.writeUTF("Hello world!"); //write string
 			
 			//7. Use the producer to send the message to the queue
-			messageProducer.send(mapMessage);
+			messageProducer.send(bytesMessage);
 			
 		} catch (JMSException e) {
 			e.printStackTrace();

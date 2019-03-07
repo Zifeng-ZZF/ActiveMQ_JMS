@@ -3,6 +3,7 @@ package com.zzf.jms.amq.queue;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -43,16 +44,34 @@ public class Receiver {
 			//A receiver has to start the connection
 			connection.start();
 			
-			//Receive the message
-//			TextMessage textMessage = (TextMessage)messageConsumer.receive();
+			//Text message
+			/*
+			TextMessage textMessage = (TextMessage)messageConsumer.receive();
+			System.out.println("Text: " + textMessage.getText());
+			*/
 			
-//			ObjectMessage objectMessage = (ObjectMessage)messageConsumer.receive();
-//			Student student = (Student)objectMessage.getObject();
+			//Object message
+			/*
+			ObjectMessage objectMessage = (ObjectMessage)messageConsumer.receive();
+			Student student = (Student)objectMessage.getObject();
+			System.out.println(student.getId() + " " + student.getName() + " " + student.getDepartment());
+			*/
 			
+			//Map message
+			/*
 			MapMessage mapMessage = (MapMessage)messageConsumer.receive();
-			
 			System.out.println("Received object: \n" + "Name: " + mapMessage.getString("Name") + "\n"
 					+ "Niubi: " + mapMessage.getBoolean("niubi"));
+			*/
+			
+			//Byte message
+			/*
+			BytesMessage bytesMessage = (BytesMessage)messageConsumer.receive();
+			boolean boo = bytesMessage.readBoolean();
+			long lon = bytesMessage.readLong();
+			String string = bytesMessage.readUTF();
+			System.out.println(boo + " " + lon + " " + string);
+			*/
 			
 		} catch (JMSException e) {
 			e.printStackTrace();
