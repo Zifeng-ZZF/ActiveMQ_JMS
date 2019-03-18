@@ -11,6 +11,10 @@ Active MQ features:
 Active MQ acknowledgement mechanism:
 
 Active MQ Safety mechanism:
+ 1. Security of Web Portal: jetty.xml, jetty-realm.properpties(change account/password)
+ 2. Security of broker: activemq.xml
+    -- Simple authenticication plugin: username password group
+    -- Changes in code: ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("usename", "password", "tcp://...");
 
 Active MQ Message:
   1. Header
