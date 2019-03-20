@@ -24,6 +24,11 @@ Active MQ Message:
   3. Body
 
 Active MQ Storage & Memory:
+  1. Memory
+  2. Storage machenism
+    2.1 AMQ Message Storage
+    2.2 KahaDB (replaces AMQ)
+    2.3 JDBC --> SQL database
 
 
 Two ways of delivering: 
@@ -42,6 +47,8 @@ Performance elements:
   6. Distribution of messages
   7. Message size
   8. Number of producers & consumers
+  9. JVM configuration
+  10. Storage choices
   
 Peformace Test: 
   1. JMeter performance test.
